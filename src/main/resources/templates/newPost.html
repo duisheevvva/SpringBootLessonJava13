@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Post</title>
+</head>
+<body>
+<form th:action="@{/post/{userId}/save(userId=${userId})}" th:object="${newPost} " th:method="POST">
+    <p>
+        <label>Title</label>
+        <input th:field="*{title}">
+    </p>
+    <p>
+        <label>Description</label>
+        <input th:field="*{description}">
+    </p>
+    <p>
+        <label>Image</label>
+        <input th:field="*{image}">
+    </p>
+    <p>
+        <button type="submit" class="btn btn- primary">Save Post</button>
+    </p>
+</form>
+</body>
+</html>

@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -26,6 +28,9 @@ public class User {
     private String lastName;
     private int age;
     private String email;
+
+    @OneToMany(mappedBy = "user",cascade = {CascadeType.ALL})
+    private List<Post>posts;
 
     public User(String firstName, String lastName, int age, String email) {
         this.firstName = firstName;

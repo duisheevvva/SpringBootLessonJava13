@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search post</title>
+</head>
+<body>
+<div th:if="${posts}">
+    <h3>Search Results:</h3>
+    <ul>
+        <li th:each="post : ${posts}">
+            <a th:href="@{/post/{userId}/{postId}/search(userId=${userId}, postId=${posts.id})}" th:text="${posts.title}"></a>
+            <p th:text="${posts.description}"></p>
+            <p th:text="${posts.image}"></p>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

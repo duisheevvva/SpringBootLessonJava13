@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form class="search-box d-flex" role="search" th:action="@{/post/{userId}/search(userId=${userId})}" th:method="GET">
+    <input class="form-control me-2" type="search" name="word" th:value="word" placeholder="Search">
+    <button type="submit" class="btn btn- primary">Search</button>
+</form>
+<div th:each="post:${posts}">
+    <div th:class="card-body">
+        <h2 class="card-title" th:text="${post.title}">Title</h2>
+        <img th:src="${post.image}" alt="Post Image" >
+        <h3 class="card-description" th:text="${post.description}">Description</h3>
+    </div>
+</div>
+<div>
+    <a th:href="@{/post/{userId}/new(userId=${userId})}">
+        <button type="submit" class="btn btn-primary">Create Post</button>
+    </a>
+</div>
+</body>
+</html>
